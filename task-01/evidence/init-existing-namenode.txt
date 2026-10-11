@@ -1,0 +1,2 @@
+NameNode directory: /tmp/hadoop-hadoop/dfs/name
+SKIP: Existing NameNode metadata found; formatting is forbidden

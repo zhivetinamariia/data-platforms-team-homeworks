@@ -1,0 +1,29 @@
+===== LOCAL EDGE: --check =====
+===== team-21-en: configuration check =====
+OK: core-site.xml
+OK: hdfs-site.xml
+OK: workers
+OK: JAVA_HOME
+PASS: Configuration matches repository
+===== REMOTE NODE: team-21-nn (--check) =====
+===== team-21-nn: configuration check =====
+OK: core-site.xml
+OK: hdfs-site.xml
+OK: workers
+OK: JAVA_HOME
+PASS: Configuration matches repository
+===== REMOTE NODE: team-21-00 (--check) =====
+===== team-21-00: configuration check =====
+OK: core-site.xml
+OK: hdfs-site.xml
+OK: workers
+OK: JAVA_HOME
+PASS: Configuration matches repository
+===== REMOTE NODE: team-21-01 (--check) =====
+===== team-21-01: configuration check =====
+OK: core-site.xml
+OK: hdfs-site.xml
+OK: workers
+OK: JAVA_HOME
+PASS: Configuration matches repository
+PASS: All four nodes completed configuration --check

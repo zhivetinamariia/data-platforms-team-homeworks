@@ -1,0 +1,125 @@
+===== team-21-nn: NameNode =====
+SKIP: NameNode is already running
+===== team-21-nn: DataNode =====
+SKIP: DataNode is already running
+===== team-21-00: DataNode =====
+SKIP: DataNode is already running
+===== team-21-01: DataNode =====
+SKIP: DataNode is already running
+===== team-21-nn: SecondaryNameNode =====
+SKIP: SecondaryNameNode is already running
+===== WAITING FOR CLUSTER HEALTH =====
+===== VERIFICATION TIME =====
+2026-10-11T16:28:45+00:00
+===== HADOOP VERSION =====
+Hadoop 3.4.0
+Source code repository git@github.com:apache/hadoop.git -r bd8b77f398f626bb7791783192ee7a5dfaeec760
+Compiled by root on 2024-03-04T06:35Z
+Compiled on platform linux-x86_64
+Compiled with protoc 3.21.12
+From source with checksum f7fe694a3613358b38812ae9c31114e
+This command was run using /home/hadoop/hadoop-3.4.0/share/hadoop/common/hadoop-common-3.4.0.jar
+===== HDFS REPORT =====
+Configured Capacity: 152652324864 (142.17 GB)
+Present Capacity: 136134012928 (126.78 GB)
+DFS Remaining: 136133922816 (126.78 GB)
+DFS Used: 90112 (88 KB)
+DFS Used%: 0.00%
+Replicated Blocks:
+	Under replicated blocks: 0
+	Blocks with corrupt replicas: 0
+	Missing blocks: 0
+	Missing blocks (with replication factor 1): 0
+	Low redundancy blocks with highest priority to recover: 0
+	Pending deletion blocks: 0
+Erasure Coded Block Groups:
+	Low redundancy block groups: 0
+	Block groups with corrupt internal blocks: 0
+	Missing block groups: 0
+	Low redundancy blocks with highest priority to recover: 0
+	Pending deletion blocks: 0
+
+-------------------------------------------------
+Live datanodes (3):
+
+Name: 10.21.0.11:9866 (team-21-nn)
+Hostname: team-21-nn.hse.c.mws
+Decommission Status : Normal
+Configured Capacity: 50884108288 (47.39 GB)
+DFS Used: 32768 (32 KB)
+Non DFS Used: 5470285824 (5.09 GB)
+DFS Remaining: 45397012480 (42.28 GB)
+DFS Used%: 0.00%
+DFS Remaining%: 89.22%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 0
+Last contact: Sun Oct 11 16:28:47 UTC 2026
+Last Block Report: Sun Oct 11 14:53:29 UTC 2026
+Num of Blocks: 0
+
+
+Name: 10.21.0.12:9866 (team-21-00)
+Hostname: team-21-00.hse.c.mws
+Decommission Status : Normal
+Configured Capacity: 50884108288 (47.39 GB)
+DFS Used: 28672 (28 KB)
+Non DFS Used: 5501747200 (5.12 GB)
+DFS Remaining: 45365555200 (42.25 GB)
+DFS Used%: 0.00%
+DFS Remaining%: 89.15%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 0
+Last contact: Sun Oct 11 16:28:47 UTC 2026
+Last Block Report: Sun Oct 11 15:39:25 UTC 2026
+Num of Blocks: 0
+
+
+Name: 10.21.0.13:9866 (team-21-01)
+Hostname: team-21-01.hse.c.mws
+Decommission Status : Normal
+Configured Capacity: 50884108288 (47.39 GB)
+DFS Used: 28672 (28 KB)
+Non DFS Used: 5495947264 (5.12 GB)
+DFS Remaining: 45371355136 (42.26 GB)
+DFS Used%: 0.00%
+DFS Remaining%: 89.17%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 0
+Last contact: Sun Oct 11 16:28:47 UTC 2026
+Last Block Report: Sun Oct 11 14:53:26 UTC 2026
+Num of Blocks: 0
+===== SAFE MODE =====
+Safe mode is OFF
+===== JAVA PROCESSES =====
+--- team-21-nn ---
+23345 Jps
+21635 SecondaryNameNode
+21427 DataNode
+21284 NameNode
+--- team-21-00 ---
+19912 DataNode
+21147 Jps
+--- team-21-01 ---
+20964 DataNode
+22230 Jps
+===== SECONDARY NAMENODE =====
+21635 SecondaryNameNode
+21427 DataNode
+23412 Jps
+21284 NameNode
+PASS: 3 live Normal DataNodes, required processes present,
+safe mode OFF, no missing, corrupt or under-replicated blocks.
+Note: this check does not test file write/read or inspect logs.
+PASS: HDFS startup and verification completed

@@ -1,0 +1,6 @@
+===== team-21-en: configuration check =====
+OK: core-site.xml
+OK: hdfs-site.xml
+OK: workers
+OK: JAVA_HOME
+PASS: Configuration matches repository

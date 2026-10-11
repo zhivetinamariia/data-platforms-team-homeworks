@@ -1,0 +1,14 @@
+# SSH keys and credentials must never be committed
+.ssh/
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+team21_ed25519*
+team_internal*
+*.gpg
+.env
+
+# Local temporary files
+*.swp
+*.tmp

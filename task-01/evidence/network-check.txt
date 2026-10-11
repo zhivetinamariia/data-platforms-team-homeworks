@@ -1,0 +1,25 @@
+===== EDGE NAME RESOLUTION =====
+OK: team-21-en resolves to 10.21.0.10
+OK: team-21-nn resolves to 10.21.0.11
+OK: team-21-00 resolves to 10.21.0.12
+OK: team-21-01 resolves to 10.21.0.13
+===== HADOOP SSH AND NAME RESOLUTION: team-21-nn =====
+team-21-nn
+OK: team-21-en resolves to 10.21.0.10
+OK: team-21-nn resolves to 10.21.0.11
+OK: team-21-00 resolves to 10.21.0.12
+OK: team-21-01 resolves to 10.21.0.13
+===== HADOOP SSH AND NAME RESOLUTION: team-21-00 =====
+team-21-00
+OK: team-21-en resolves to 10.21.0.10
+OK: team-21-nn resolves to 10.21.0.11
+OK: team-21-00 resolves to 10.21.0.12
+OK: team-21-01 resolves to 10.21.0.13
+===== HADOOP SSH AND NAME RESOLUTION: team-21-01 =====
+team-21-01
+OK: team-21-en resolves to 10.21.0.10
+OK: team-21-nn resolves to 10.21.0.11
+OK: team-21-00 resolves to 10.21.0.12
+OK: team-21-01 resolves to 10.21.0.13
+PASS: Name resolution checked on four nodes;
+non-interactive hadoop SSH works from edge to all three server nodes.

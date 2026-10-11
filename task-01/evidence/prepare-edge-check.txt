@@ -1,0 +1,10 @@
+===== team-21-en: installation check =====
+uid=1001(hadoop) gid=1001(hadoop) groups=1001(hadoop),100(users)
+Hadoop 3.4.0
+Source code repository git@github.com:apache/hadoop.git -r bd8b77f398f626bb7791783192ee7a5dfaeec760
+Compiled by root on 2024-03-04T06:35Z
+Compiled on platform linux-x86_64
+Compiled with protoc 3.21.12
+From source with checksum f7fe694a3613358b38812ae9c31114e
+This command was run using /home/hadoop/hadoop-3.4.0/share/hadoop/common/hadoop-common-3.4.0.jar
+PASS: hadoop user, Java and Hadoop 3.4.0 are present
