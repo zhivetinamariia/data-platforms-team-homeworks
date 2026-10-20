@@ -1,0 +1,52 @@
+===== Шаг 5. Загрузка данных в партиционированную таблицу hw3.orders =====
+===== команда: bash scripts/05_load_data.sh =====
+
+===== повторный запуск deploy.sh, 2026-10-20 17:13 UTC (лог deploy-20261020-171319.log) =====
+[+] Генерирую 50000 строк тестовых заказов за 2025 год: /tmp/hw3-hive/data/orders_generated.csv
+[+] Строк данных в файле: 50000
+[+] Кладу файл в HDFS: /data/hw3/staging/orders/20261020-171405_orders_generated.csv
+Found 1 items
+-rw-r--r--   3 hadoop supergroup    2226361 2026-10-20 17:14 /data/hw3/staging/orders/20261020-171405_orders_generated.csv
+[+] Создаю базу hw3 и таблицы (если их нет)
+[+] Hive видит в staging строк с данными: 50000
+[+] Загружаю данные в партиционированную таблицу hw3.orders (MapReduce в YARN)
+[+] Партиции и итоги по месяцам:
+order_year=2025/order_month=1
+order_year=2025/order_month=10
+order_year=2025/order_month=11
+order_year=2025/order_month=12
+order_year=2025/order_month=2
+order_year=2025/order_month=3
+order_year=2025/order_month=4
+order_year=2025/order_month=5
+order_year=2025/order_month=6
+order_year=2025/order_month=7
+order_year=2025/order_month=8
+order_year=2025/order_month=9
+2025	1	4057	3434649.64
+2025	2	4216	3538084.01
+2025	3	4143	3509078.06
+2025	4	4162	3531113.62
+2025	5	4172	3574498.60
+2025	6	4107	3479973.35
+2025	7	4172	3549392.70
+2025	8	4197	3602271.26
+2025	9	4194	3409817.65
+2025	10	4276	3531487.52
+2025	11	4146	3598392.55
+2025	12	4158	3630395.87
+[+] Файлы таблицы в HDFS:
+    /data/hw3/orders/order_year=2025
+    /data/hw3/orders/order_year=2025/order_month=1
+    /data/hw3/orders/order_year=2025/order_month=10
+    /data/hw3/orders/order_year=2025/order_month=11
+    /data/hw3/orders/order_year=2025/order_month=12
+    /data/hw3/orders/order_year=2025/order_month=2
+    /data/hw3/orders/order_year=2025/order_month=3
+    /data/hw3/orders/order_year=2025/order_month=4
+    /data/hw3/orders/order_year=2025/order_month=5
+    /data/hw3/orders/order_year=2025/order_month=6
+    /data/hw3/orders/order_year=2025/order_month=7
+    /data/hw3/orders/order_year=2025/order_month=8
+    /data/hw3/orders/order_year=2025/order_month=9
+[+] Загрузка завершена

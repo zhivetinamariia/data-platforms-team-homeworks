@@ -1,0 +1,52 @@
+===== Шаг 2. PostgreSQL для метастора на team-21-nn =====
+===== команда: bash scripts/02_setup_postgres.sh =====
+
+===== первый запуск deploy.sh, 2026-10-18 04:45 UTC (лог deploy-20261018-044554.log) =====
+[+] Генерирую пароль для пользователя БД hive в secrets.env
+[+] Настраиваю PostgreSQL на team-21-nn
+[+] team-21-nn: Устанавливаю PostgreSQL
+
+Restarting services...
+
+Service restarts being deferred:
+ /etc/needrestart/restart.d/dbus.service
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+User sessions running outdated binaries:
+ hadoop @ session #1135: java[29811]
+ hadoop @ session #939: java[21284]
+ hadoop @ user manager service: systemd[21055]
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Synchronizing state of postgresql.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable postgresql
+[+] team-21-nn: listen_addresses: 'localhost' -> '*'
+[+] team-21-nn: Добавляю правило в /etc/postgresql/16/main/pg_hba.conf
+[+] team-21-nn: Перезапускаю PostgreSQL
+[+] team-21-nn: Создаю роль hive
+[+] team-21-nn: Создаю базу metastore (владелец hive)
+[+] team-21-nn: PostgreSQL готов: PostgreSQL 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1) on x86_64-pc-linux-gnu
+[+] team-21-nn: Слушает адреса: *, порт 5432
+[+] Проверяю подключение к БД метастора с edge-ноды
+[+] Подключение hive@team-21-nn:5432/metastore работает
+
+===== повторный запуск deploy.sh, 2026-10-20 17:13 UTC (лог deploy-20261020-171319.log); добавлена проверка имен узлов =====
+[+] Проверяю, что имена узлов YARN указывают на сетевые адреса
+[+] team-21-nn -> 10.21.0.11
+[+] team-21-00 -> 10.21.0.12
+[+] team-21-01 -> 10.21.0.13
+[+] Настраиваю PostgreSQL на team-21-nn
+[=] team-21-nn: SKIP: PostgreSQL уже установлен
+Synchronizing state of postgresql.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable postgresql
+[=] team-21-nn: SKIP: listen_addresses уже '*'
+[=] team-21-nn: SKIP: правило в pg_hba.conf уже есть
+[=] team-21-nn: SKIP: роль hive уже есть, обновляю пароль
+[=] team-21-nn: SKIP: база metastore уже есть
+[+] team-21-nn: PostgreSQL готов: PostgreSQL 16.15 (Ubuntu 16.15-0ubuntu0.24.04.1) on x86_64-pc-linux-gnu
+[+] team-21-nn: Слушает адреса: *, порт 5432
+[+] Проверяю подключение к БД метастора с edge-ноды
+[+] Подключение hive@team-21-nn:5432/metastore работает

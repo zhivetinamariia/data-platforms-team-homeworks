@@ -1,0 +1,40 @@
+===== Проблема при первом запуске: загрузка (шаг 5) упала =====
+===== Hive: =====
+Error: Error while compiling statement: FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.mr.MapRedTask (state=08S01,code=2)
+
+===== yarn application -list -appStates ALL =====
+application_1791812627564_0002	SELECT count(*) FROM hw3.orders_staging (Stage-1)	           MAPREDUCE	    hadoop	root.default	          FINISHED	            FAILED	           100%	http://team-21-nn:19888/jobhistory/job/job_1791812627564_0002
+
+===== yarn logs -applicationId application_1791812627564_0002 | grep Exception (фрагмент: по одной строке на каждый узел) =====
+2026-10-18 05:09:17,330 WARN [main] org.apache.hadoop.mapred.YarnChild: Exception running child : java.net.ConnectException: Call From team-21-01/127.0.1.1 to team-21-01.hse.c.mws:46295 failed on connection exception: java.net.ConnectException: Connection refused; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused
+2026-10-18 05:09:51,659 WARN [main] org.apache.hadoop.mapred.YarnChild: Exception running child : java.net.ConnectException: Call From team-21-nn/10.21.0.11 to 127.0.1.1:46295 failed on connection exception: java.net.ConnectException: Connection refused; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused
+
+===== Причина: /etc/hosts на узлах (до исправления) =====
+== team-21-nn
+10.21.0.10 team-21-en
+10.21.0.11      team-21-nn.hse.c.mws team-21-nn
+10.21.0.12 team-21-00
+10.21.0.13 team-21-01
+#127.0.1.1 team-21-nn.hse.c.mws team-21-nn
+== team-21-00
+10.21.0.10 team-21-en
+10.21.0.11 team-21-nn
+10.21.0.12 team-21-00
+10.21.0.13 team-21-01
+127.0.1.1 team-21-00.hse.c.mws team-21-00
+== team-21-01
+10.21.0.10 team-21-en
+10.21.0.11 team-21-nn
+10.21.0.12 team-21-00
+10.21.0.13 team-21-01
+127.0.1.1 team-21-01.hse.c.mws team-21-01
+
+===== Исправление (см. README, «Предварительные требования») =====
+На team-21-00 и team-21-01 строка 127.0.1.1 закомментирована, к строке 10.21.0.x добавлено полное имя узла,
+NodeManager перезапущен. Резервная копия: /etc/hosts.bak.
+
+===== После исправления (проверка из шага 2, 2026-10-20) =====
+[+] Проверяю, что имена узлов YARN указывают на сетевые адреса
+[+] team-21-nn -> 10.21.0.11
+[+] team-21-00 -> 10.21.0.12
+[+] team-21-01 -> 10.21.0.13

@@ -1,0 +1,28 @@
+===== Шаг 6. Итоговая проверка =====
+===== команда: bash scripts/06_check.sh =====
+
+===== повторный запуск deploy.sh, 2026-10-20 17:13 UTC (лог deploy-20261020-171319.log) =====
+===== Сервисы =====
+[OK]   Hive Metastore работает отдельным процессом (pid 110963)
+[OK]   HiveServer2 работает отдельным процессом (pid 111083)
+[OK]   Metastore Thrift слушает порт 9083
+[OK]   HiveServer2 JDBC слушает порт 10000
+[OK]   HiveServer2 Web UI слушает порт 10002
+===== Metastore во внешней БД (не embedded Derby) =====
+[OK]   ConnectionURL = jdbc:postgresql://team-21-nn:5432/metastore
+[OK]   hive.metastore.uris = thrift://team-21-en:9083 (удаленный Metastore)
+[OK]   каталога Derby metastore_db нет
+[OK]   схема метастора в PostgreSQL team-21-nn, версия 4.0.0-alpha-2
+[OK]   в PostgreSQL записано партиций hw3.orders: 12
+===== Несколько клиентов одновременно =====
+       Web UI HiveServer2: максимум одновременных сессий 3 (client1 client2 client3)
+[OK]   HiveServer2 одновременно обслуживал 3 сессии
+[OK]   клиент client1: client1 4057
+[OK]   клиент client2: client2 4216
+[OK]   клиент client3: client3 4143
+===== Партиционированная таблица =====
+[OK]   партиций в hw3.orders: 12
+[OK]   строк в staging и в hw3.orders совпадает: 50000
+[OK]   каталогов партиций в HDFS /data/hw3/orders: 12
+
+PASS: Hive развернут в многопользовательском режиме, данные загружены в партиционированную таблицу

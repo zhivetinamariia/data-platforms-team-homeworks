@@ -1,0 +1,14 @@
+===== Шаг 3. Конфигурация Hive и схема метастора =====
+===== команда: bash scripts/03_configure_hive.sh =====
+
+===== первый запуск deploy.sh, 2026-10-18 04:45 UTC (лог deploy-20261018-044554.log) =====
+[+] Генерирую hive-site.xml
+[+] Генерирую hive-env.sh
+[+] Записан /home/hadoop/apache-hive-4.0.0-alpha-2-bin/conf/hive-site.xml
+[+] Записан /home/hadoop/apache-hive-4.0.0-alpha-2-bin/conf/hive-env.sh
+[+] Проверяю HDFS
+[+] Создаю каталоги Hive в HDFS
+[+] Проверяю схему метастора в PostgreSQL
+[+] Инициализирую схему метастора (schematool -initSchema)
+Metastore schema version:	 4.0.0-alpha-2
+[+] Конфигурация Hive готова

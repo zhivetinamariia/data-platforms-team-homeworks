@@ -1,0 +1,19 @@
+===== Шаг 1. Установка Hive 4.0.0-alpha-2 на team-21-en =====
+===== команда: bash scripts/01_install_hive.sh =====
+
+===== первый запуск deploy.sh, 2026-10-18 04:45 UTC (лог deploy-20261018-044554.log); промежуточные строки прогресса скачивания убраны, оставлена итоговая =====
+[+] Устанавливаю пакеты: клиент PostgreSQL и JDBC-драйвер
+[+] Скачиваю https://archive.apache.org/dist/hive/hive-4.0.0-alpha-2/apache-hive-4.0.0-alpha-2-bin.tar.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  352M  100  352M    0     0   297k      0  0:20:13  0:20:13 --:--:--  195k
+[+] Проверяю контрольную сумму SHA-256
+[+] SHA-256 совпадает
+[+] Распаковываю в /home/hadoop
+[=] SKIP: JDBC-драйвер PostgreSQL уже лежит в /home/hadoop/apache-hive-4.0.0-alpha-2-bin/lib
+[+] Заменяю guava-19.0.jar на guava-27.0-jre.jar (конфликт с Hadoop 3)
+[+] Копирую yarn-site.xml с team-21-nn на edge
+[+] Копирую mapred-site.xml с team-21-nn на edge
+[+] Версия Hive:
+Hive 4.0.0-alpha-2
+[+] Установка Hive завершена
