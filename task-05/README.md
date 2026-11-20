@@ -34,7 +34,7 @@ Prefect flow (edge-нода team-21-en)
 * Работают HDFS, YARN и Hive (Metastore и HiveServer2) из прошлых ДЗ
 * На edge-ноде есть Spark 3.5.9 (`/home/team/spark-3.5.9-bin-hadoop3`) и конфиги Hadoop (`/home/team/hadoop-conf`)
 * В HDFS лежит CSV с заказами: `/data/hw3/staging/orders/`, колонки `order_id, order_date, region, product, quantity, price`
-* У `team` есть `sudo` без пароля (beeline запускается от `hadoop`)
+* У `team` есть `sudo` без пароля: beeline запускается от `hadoop`, и от него же создается папка `/data/hw5` в HDFS (`/data` принадлежит `hadoop`)
 * Есть доступ к PyPI для установки Prefect
 
 ## Запуск
@@ -49,6 +49,7 @@ bash run.sh
 
 * При первом запуске `run.sh` вызывает `setup_env.sh`: создается `/home/team/hw5-venv` и ставится Prefect
 * PySpark берется из установленного Spark, версия совпадает с кластером
+* Перед флоу `run.sh` создает в HDFS папку `/data/hw5` и делает `team` ее владельцем, иначе Spark не сможет туда писать
 * Флоу можно запускать повторно: данные в HDFS перезаписываются, таблица пересоздается
 
 ## Шаги флоу

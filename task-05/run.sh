@@ -16,6 +16,11 @@ export SPARK_LOCAL_IP="$DRIVER_HOST"
 export PYSPARK_PYTHON=python3
 export PATH="$SPARK_HOME/bin:$PATH"
 
+# /data принадлежит hadoop -> папку под результат создаем от него и отдаем текущему юзеру
+echo "[+] Папка /data/hw5 в HDFS"
+sudo -u hadoop "$HDFS_BIN" dfs -mkdir -p /data/hw5
+sudo -u hadoop "$HDFS_BIN" dfs -chown "$(whoami)" /data/hw5
+
 mkdir -p evidence
 LOG="evidence/run-$(date +%Y%m%d-%H%M%S).log"
 echo "[+] Запуск флоу, лог: $LOG"
