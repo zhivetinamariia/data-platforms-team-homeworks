@@ -1,0 +1,57 @@
+15:53:47.969 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8957
+See https://www.prefect.io/docs/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+15:53:52.763 | INFO    | Flow run 'invincible-leech' - Beginning flow run 'invincible-leech' for flow 'hw5-spark-yarn-hdfs-hive'
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/11/20 15:53:56 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/11/20 15:53:58 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+15:54:34.157 | INFO    | Task run 'start_spark-5a4' - Spark 3.5.9 поднят, master=yarn, app=application_1791812627564_0039
+15:54:34.162 | INFO    | Task run 'start_spark-5a4' - Finished in state Completed()
+15:54:34.199 | INFO    | Task run 'connect_hdfs-4f7' - HDFS: hdfs://team-21-nn:9000
+15:54:34.255 | INFO    | Task run 'connect_hdfs-4f7' - Нашел hdfs://team-21-nn:9000/data/hw3/staging/orders/20261020-171405_orders_generated.csv (2226361 байт)
+15:54:34.259 | INFO    | Task run 'connect_hdfs-4f7' - Finished in state Completed()
+[Stage 0:>                                                          (0 + 0) / 1][Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 1:===========================================================(1 + 0) / 1]                                                                                15:54:54.199 | INFO    | Task run 'read_orders-63c' - Строк: 50000, колонки: ['order_id', 'order_date', 'region', 'product', 'quantity', 'price']
+15:54:54.202 | INFO    | Task run 'read_orders-63c' - Finished in state Completed()
+[Stage 4:>                                                          (0 + 1) / 1]                                                                                15:54:57.371 | INFO    | Task run 'transform-97d' - После агрегации: 96 строк
+[Stage 10:>                                                         (0 + 1) / 1]                                                                                15:54:59.519 | INFO    | Task run 'transform-97d' - +----------+----------+-----------+------------+--------------+-------------+---------+
+|product   |order_year|order_month|orders_count|total_quantity|total_revenue|avg_price|
++----------+----------+-----------+------------+--------------+-------------+---------+
+|headphones|2025      |1          |524         |1551          |137778.35    |88.65    |
+|headphones|2025      |2          |547         |1663          |148164.0     |89.03    |
+|headphones|2025      |3          |484         |1469          |131524.11    |89.28    |
+|headphones|2025      |4          |528         |1617          |143600.12    |88.83    |
+|headphones|2025      |5          |517         |1518          |135372.7     |89.34    |
+|headphones|2025      |6          |530         |1565          |138719.4     |88.84    |
+|headphones|2025      |7          |515         |1511          |134866.76    |89.21    |
+|headphones|2025      |8          |551         |1636          |144505.65    |88.73    |
+|headphones|2025      |9          |542         |1638          |146423.56    |89.29    |
+|headphones|2025      |10         |559         |1663          |147567.98    |88.79    |
++----------+----------+-----------+------------+--------------+-------------+---------+
+only showing top 10 rows
+15:54:59.524 | INFO    | Task run 'transform-97d' - Finished in state Completed()
+[Stage 13:>                                                         (0 + 1) / 1]                                                                                [Stage 20:>                                                         (0 + 1) / 1]                                                                                15:55:02.851 | INFO    | Task run 'save_parquet-ded' - Записал в hdfs:///data/hw5/product_monthly_sales
+15:55:02.856 | INFO    | Task run 'save_parquet-ded' - Finished in state Completed()
+15:56:11.841 | INFO    | Task run 'register_table-0dc' - +----------------+
+| rows_in_table  |
++----------------+
+| 96             |
++----------------+
++--------------------------------+-----------------------------------+------------------------------------+-------------------------------------+---------------------------------------+--------------------------------------+----------------------------------+
+| product_monthly_sales.product  | product_monthly_sales.order_year  | product_monthly_sales.order_month  | product_monthly_sales.orders_count  | product_monthly_sales.total_quantity  | product_monthly_sales.total_revenue  | product_monthly_sales.avg_price  |
++--------------------------------+-----------------------------------+------------------------------------+-------------------------------------+---------------------------------------+--------------------------------------+----------------------------------+
+| laptop                         | 2025                              | 8                                  | 570                                 | 1695                                  | 1520779.25                           | 896.95                           |
+| laptop                         | 2025                              | 11                                 | 536                                 | 1660                                  | 1490350.59                           | 898.52                           |
+| laptop                         | 2025                              | 5                                  | 533                                 | 1622                                  | 1455424.77                           | 895.89                           |
+| laptop                         | 2025                              | 12                                 | 522                                 | 1605                                  | 1452064.13                           | 904.26                           |
+| laptop                         | 2025                              | 2                                  | 503                                 | 1563                                  | 1400474.11                           | 895.02                           |
+| laptop                         | 2025                              | 6                                  | 530                                 | 1529                                  | 1386792.33                           | 908.44                           |
+| laptop                         | 2025                              | 4                                  | 526                                 | 1561                                  | 1385689.63                           | 892.49                           |
+| laptop                         | 2025                              | 1                                  | 515                                 | 1502                                  | 1361759.33                           | 903.6                            |
+| laptop                         | 2025                              | 10                                 | 506                                 | 1523                                  | 1357431.04                           | 889.07                           |
+| laptop                         | 2025                              | 3                                  | 508                                 | 1498                                  | 1357006.67                           | 904.55                           |
++--------------------------------+-----------------------------------+------------------------------------+-------------------------------------+---------------------------------------+--------------------------------------+----------------------------------+
+
+15:56:11.843 | INFO    | Task run 'register_table-0dc' - Таблица hw5.product_monthly_sales готова (hdfs:///data/hw5/product_monthly_sales)
+15:56:11.846 | INFO    | Task run 'register_table-0dc' - Finished in state Completed()
+15:56:11.875 | INFO    | Flow run 'invincible-leech' - Finished in state Completed()
+15:56:11.888 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8957
